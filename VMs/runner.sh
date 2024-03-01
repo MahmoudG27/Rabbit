@@ -23,6 +23,15 @@ echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.
 sudo apt-get update
 sudo apt-get install -y kubectl
 
+# update settings
+echo <<'EOF' >> ~/.bashrc
+source <(kubectl completion bash)
+alias k=kubectl
+complete -o default -F __start_kubectl k
+EOF
+
+source ~/.bashrc 
+
 ##########################################################################################################################################################################
 
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
