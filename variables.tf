@@ -147,10 +147,10 @@ variable "endpoint-acr-name" {
   type = string
 }
 variable "endpoint-acr-private-ip" {
-  type    = string
+  type = string
 }
 variable "endpoint-acr-data-private-ip" {
-  type    = string
+  type = string
 }
 
 #####################################

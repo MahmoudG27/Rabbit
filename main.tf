@@ -70,13 +70,13 @@ module "ACR" {
 }
 
 module "EndPoint" {
-  source                      = "./EndPoint"
-  EndPoint-MySQL-name         = var.endpoint-mysql-name
-  EndPoint-MySQL-private-ip   = var.endpoint-mysql-ip
-  EndPoint-Replica-name       = var.endpoint-replica-name
-  EndPoint-Replica-private-ip = var.endpoint-replica-ip
-  EndPoint-ACR-name           = var.endpoint-acr-name
-  EndPoint-acr-private-ip = var.endpoint-acr-private-ip
+  source                       = "./EndPoint"
+  EndPoint-MySQL-name          = var.endpoint-mysql-name
+  EndPoint-MySQL-private-ip    = var.endpoint-mysql-ip
+  EndPoint-Replica-name        = var.endpoint-replica-name
+  EndPoint-Replica-private-ip  = var.endpoint-replica-ip
+  EndPoint-ACR-name            = var.endpoint-acr-name
+  EndPoint-acr-private-ip      = var.endpoint-acr-private-ip
   EndPoint-acr-data-private-ip = var.endpoint-acr-data-private-ip
 
   RG-name     = module.ResourceGroup.RG-name

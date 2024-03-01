@@ -9,7 +9,6 @@ resource "azurerm_linux_virtual_machine" "runner-vm" {
   disable_password_authentication = false
   zone                            = 1
   network_interface_ids           = var.Runner-PrivateIP
-  custom_data                     = file("./runner.sh")
 
   os_disk {
     caching              = "ReadWrite"
