@@ -37,3 +37,4 @@ source ~/.bashrc
 sudo apt-get remove docker docker-engine docker.io containerd runc -y
 sudo apt update
 sudo apt install docker.io -y
+sudo usermod -aG docker $USER

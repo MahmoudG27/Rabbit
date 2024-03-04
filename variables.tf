@@ -248,3 +248,9 @@ variable "UserPool-Pods-Node" {
 variable "appGateway-name" {
   type = string
 }
+
+###########################################
+
+variable "DNS-ACR-name" {
+  type = string
+}

@@ -2,8 +2,8 @@ variable "RG-name" {}
 variable "RG-location" {}
 
 variable "InfraSubnet-id" {}
-
 variable "ACR-id" {}
+variable "DNS-ACR-id" {}
 
 variable "Flexbile-MySQL-id" {}
 variable "Replica-MySQL-id" {}
@@ -35,6 +35,7 @@ variable "EndPoint-ACR-name" {
   type    = string
   default = "ACR-EndPoint"
 }
+
 variable "EndPoint-acr-private-ip" {
   type    = string
   default = "10.224.0.110"

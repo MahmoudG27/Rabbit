@@ -1,32 +1,21 @@
 # Create Private EndPoint For ACR
-resource "azurerm_private_endpoint" "acr-endpoints" {
-  name                          = var.EndPoint-ACR-name
-  resource_group_name           = var.RG-name
-  location                      = var.RG-location
-  subnet_id                     = var.InfraSubnet-id
-  custom_network_interface_name = "acr-endpoint-nic"
+resource "azurerm_private_endpoint" "acr_private_endpoint" {
+  name                = "demo-acr"
+  resource_group_name = var.RG-name
+  location            = var.RG-location
+  subnet_id           = var.InfraSubnet-id
 
   private_service_connection {
-    name                           = "endpoint-acr"
+    is_manual_connection           = false
+    name                           = "acr-endpo"
     private_connection_resource_id = var.ACR-id
     subresource_names              = ["registry"]
-    is_manual_connection           = false
   }
 
-  ip_configuration {
-    member_name        = "registry"
-    name               = "ip-acr"
-    private_ip_address = var.EndPoint-acr-private-ip
-    subresource_name   = "registry"
-  }
-  ip_configuration {
-    member_name        = "registry_data_northeurope"
-    name               = "ip-data-acr"
-    private_ip_address = var.EndPoint-acr-data-private-ip
-    subresource_name   = "registry"
+  private_dns_zone_group {
+    name = "private-dns-zone-group"
+    private_dns_zone_ids = [
+      var.DNS-ACR-id
+    ]
   }
 }
-
-# Note:
-# Private IP for registry (the ACR itself): [Provide an available static IP address]
-# Private IP for registry_data_northeurope (the registry data)
