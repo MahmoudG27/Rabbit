@@ -86,7 +86,7 @@ module "EndPoint" {
   Flexbile-MySQL-id = module.MySQL.Flexbile-MySQL-id
   Replica-MySQL-id  = module.MySQL.Replica-MySQL-id
   ACR-id            = module.ACR.ACR-id
-  DNS-ACR-id        = module.DNS.DNS-id
+  DNS-ACR-id        = module.DNS.Private-DNS-ACR-id
 }
 
 module "AppGateway" {
@@ -136,6 +136,7 @@ module "DNS" {
   source       = "./DNS"
   DNS-ACR-name = var.DNS-ACR-name
 
-  RG-name = module.ResourceGroup.RG-name
-  Vnet-id = module.Network.Vnet-id
+  RG-name         = module.ResourceGroup.RG-name
+  Vnet-id         = module.Network.Vnet-id
+  AKS-identity-id = module.AKS.AKS-identity-id
 }

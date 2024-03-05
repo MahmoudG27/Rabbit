@@ -1,5 +1,6 @@
 variable "RG-name" {}
 variable "Vnet-id" {}
+variable "AKS-identity-id" {}
 
 ################################
 

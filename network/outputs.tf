@@ -2,7 +2,7 @@
 output "Vnet-name" {
   value = azurerm_virtual_network.rabbit-vnet.name
 }
-output "Vnet-address" {
+output "Vnet-id" {
   value = azurerm_virtual_network.rabbit-vnet.id
 }
 

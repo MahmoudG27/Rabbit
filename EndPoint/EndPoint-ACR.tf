@@ -18,4 +18,17 @@ resource "azurerm_private_endpoint" "acr_private_endpoint" {
       var.DNS-ACR-id
     ]
   }
+
+  ip_configuration {
+    member_name        = "registry_data_northeurope"
+    name               = "static-data"
+    private_ip_address = "10.224.0.111"
+    subresource_name   = "registry"
+  }
+  ip_configuration {
+    member_name        = "registry"
+    name               = "static-acr"
+    private_ip_address = "10.224.0.110"
+    subresource_name   = "registry"
+  }
 }

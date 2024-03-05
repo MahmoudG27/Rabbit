@@ -4,7 +4,7 @@ resource "azurerm_dns_zone" "rabbit-dns" {
 }
 
 resource "azurerm_role_assignment" "dns-aks" {
-  principal_id                     = module.AKS.AKS-identity-id
+  principal_id                     = var.AKS-identity-id
   role_definition_name             = "Contributor"
   scope                            = azurerm_dns_zone.rabbit-dns.id
   skip_service_principal_aad_check = true
